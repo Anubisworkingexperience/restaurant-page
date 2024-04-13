@@ -32,6 +32,7 @@ header > nav > button:hover {
     align-items: center;
     background: linear-gradient(0.25turn, lightpink, #ebf8e1, lightskyblue);
     min-height: var(--content-height);
+    /* padding: 30px; */
 }
 
 .content > .info {
@@ -48,4 +49,17 @@ header > nav > button:hover {
 
 h1 {
     text-decoration: underline;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 20%));
+    margin-top: 30px;
+    gap: 35px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 50px;
 }
