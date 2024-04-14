@@ -1,7 +1,10 @@
-export  function createHomepage(){
+function createHomepage(){
     
 const info = document.createElement('div');
 const content = document.querySelector('.content');
+
+content.style.display = "flex";
+content.style.padding = 0;
 
 info.classList.add('info');
 content.appendChild(info);
@@ -63,3 +66,10 @@ location.textContent = "1533 Earnhardt Drive, Kentucky";
 info.appendChild(location);
 
 }
+
+function resetContent() {
+    const content = document.querySelector('.content');
+    content.textContent = "";
+}
+
+export {createHomepage, resetContent};

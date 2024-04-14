@@ -1,5 +1,4 @@
 function resetInfoLayer() {
-    console.log('reset');
     const info = document.querySelector('.info');
     const content = document.querySelector('.content');
     content.style.display = "block";
