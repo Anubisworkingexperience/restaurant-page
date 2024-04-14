@@ -7,7 +7,7 @@ info.classList.add('info');
 content.appendChild(info);
 
 const title = document.createElement('h1');
-title.textContent = "Chef Mc Kenzy restaurant";
+title.textContent = "Chef Mc Kenzy's restaurant";
 info.appendChild(title);
 
 const quote = document.createElement('q');
@@ -30,16 +30,22 @@ for (let i = 0; i < 7; i++) {
     switch(i) {
         case 0:
             item.textContent = "Sunday: 10am - 8pm";
+            break;
         case 1:
             item.textContent = "Monday: 9am - 9pm";
+            break;
         case 2:
             item.textContent = "Tuesday: 9am - 9pm";
+            break;
         case 3:
             item.textContent = "Wednesday: 9am - 9pm";
+            break;
         case 4:
             item.textContent = "Thursday: 9am - 9pm";
+            break;
         case 5:
-            item.textContent = "Friday: 9am - 9pm";       
+            item.textContent = "Friday: 9am - 9pm";
+            break;       
         case 6:
             item.textContent = "Saturday: 10am - 8pm";     
     }

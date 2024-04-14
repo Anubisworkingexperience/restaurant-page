@@ -21,10 +21,34 @@ function addMenuItems() {
     content.appendChild(menuTitle);
 
     chooseCategory.id = "category-select";
+    chooseCategory.style.fontSize = "1.2rem";
+    const chooseOptionLabel = document.createElement('option');
+    chooseOptionLabel.textContent = "--Choose an option--";
+    chooseCategory.appendChild(chooseOptionLabel);
 
-    chooseCategoryLabel.for = "category-select";
-    chooseCategoryLabel.textContent = "Sort items by: ";
-    chooseCategoryLabel.style.fontSize = "1.5rem";
+    function createSelectOptions(optionArray, optGroup) {
+        for (let i = 0; i < optionArray.length; i++) {
+            let option = document.createElement('option');
+            option.textContent = optionArray[i];
+            option.value = optionArray[i].toLowerCase();
+            optGroup.appendChild(option);
+        }
+        chooseCategory.appendChild(optGroup);
+    }
+
+    const timeOptions = ["Breakfast", "Lunch", "Dinner"];
+    const timeOptGroup = document.createElement('optgroup');
+    timeOptGroup.label = "Time";
+    createSelectOptions(timeOptions, timeOptGroup);
+    
+    const typeOptions = ["Main-course", "Soup", "Snack", "Dessert", "Salad"];
+    const typeOptGroup = document.createElement('optgroup');
+    typeOptGroup.label = "Type";
+    createSelectOptions(typeOptions, typeOptGroup);
+
+    chooseCategoryLabel.htmlFor = "category-select";
+    chooseCategoryLabel.textContent = "Sort items: ";
+    chooseCategoryLabel.style.fontSize = "1.2rem";
 
     content.appendChild(chooseCategoryLabel);
     content.appendChild(chooseCategory);
@@ -94,15 +118,43 @@ function addMenuItems() {
         card.appendChild(itemDescription);
 
         let itemPrice = document.createElement('div');
-        itemPrice.textContent = menuItemsPrices[i] + "$";
+        itemPrice.textContent = "$" + menuItemsPrices[i];
         card.appendChild(itemPrice);
 
         let itemTime = document.createElement('div');
         itemTime.textContent = menuItemsTimeCategories[i];
+        itemTime.style.fontWeight = "900";
+        switch(menuItemsTimeCategories[i]) {
+            case "Breakfast":
+                itemTime.style.color = "orange";
+                break;
+            case "Lunch":
+                itemTime.style.color = "red";
+                break;
+            case "Dinner":
+                itemTime.style.color = "blue";
+        }
         card.appendChild(itemTime);
 
         let itemType = document.createElement('div');
         itemType.textContent = menuItemsTypeCategories[i];
+        itemType.style.fontWeight = "900";
+        switch(menuItemsTypeCategories[i]) {
+            case "Dessert":
+                itemType.style.color = "rgb(245, 109, 131)";
+                break;
+            case "Main-course":
+                itemType.style.color = "brown";
+                break;
+            case "Soup":
+                itemType.style.color = "rgb(19, 172, 172)";
+                break;
+            case "Snack":
+                itemType.style.color = "darkviolet";
+                break;
+            case "Salad":
+                itemType.style.color = "limegreen";
+        }
         card.appendChild(itemType);
     }
 }

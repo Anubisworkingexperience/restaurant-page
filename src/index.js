@@ -17,3 +17,7 @@ menu.addEventListener("click", (event) => {
     addMenuItems();
 });
 
+contact.addEventListener("click", (event) => {
+    console.log("contact clicked");
+});
+
