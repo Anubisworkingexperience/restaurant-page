@@ -56,6 +56,31 @@ function addMenuItems() {
     cardContainer.classList.add('card-container');
     content.appendChild(cardContainer);
 
+    //sort elements
+    function sortOptionsOnSelect() {
+        let categoryValue = chooseCategory.value;
+        const cards = document.querySelectorAll(".card");
+        if (categoryValue !== "--Choose an option--") {
+        for (let card of cards) {
+            if (!card.classList.contains(categoryValue)) {
+                card.style.display = "none";
+            }
+            else {
+                card.style.display = "flex";
+            }
+        }
+        }
+        else {
+            cards.forEach(card => {
+                card.style.display = "flex";
+            });
+        }
+}
+
+    chooseCategory.addEventListener("change", (event) => {
+        sortOptionsOnSelect();
+    });
+
     //title, description, price, time category, type category
     const menuItemsTitles = ["Chocolate chip and bacon pancakes", "Carrot cake waffles", "Cranberry pistachio baked oatmeal",
     "Breakfast tortilla", "Red, white, and blueberry yogurt parfaits", "Roasted chili tomato soup",
@@ -123,6 +148,7 @@ function addMenuItems() {
 
         let itemTime = document.createElement('div');
         itemTime.textContent = menuItemsTimeCategories[i];
+        card.classList.add(menuItemsTimeCategories[i].toLowerCase());
         itemTime.style.fontWeight = "900";
         switch(menuItemsTimeCategories[i]) {
             case "Breakfast":
@@ -138,6 +164,7 @@ function addMenuItems() {
 
         let itemType = document.createElement('div');
         itemType.textContent = menuItemsTypeCategories[i];
+        card.classList.add(menuItemsTypeCategories[i].toLowerCase());
         itemType.style.fontWeight = "900";
         switch(menuItemsTypeCategories[i]) {
             case "Dessert":
