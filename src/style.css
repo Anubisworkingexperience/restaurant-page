@@ -76,5 +76,12 @@ h1 {
     background-color: white;
     border-radius: 10px;
     padding: 30px;
-    /* color:limegreen */
+}
+
+.contact-container {
+    border-bottom: 3px solid red;
+}
+
+.first-contact-container {
+    border-top: 3px solid red;
 }
